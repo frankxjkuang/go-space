@@ -17,7 +17,7 @@ type array struct {
 	lock  sync.Mutex // 并发安全锁
 }
 
-// Make 创建一个 Slice 数组
+// Make 创建一个 array 数组
 func Make(len, cap int) *array {
 	if len < 0 || cap < 0 {
 		panic("len and cap cannot be less than 0")
