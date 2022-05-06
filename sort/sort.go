@@ -44,3 +44,52 @@ func SelectSort(arr []int) []int {
 	}
 	return arr
 }
+
+// InsertSort 插入排序
+func InsertSort(arr []int) []int {
+	// 从第二个数开始
+	for i := 1; i < len(arr); i++ {
+		curr := arr[i]
+		// 待排序左边第一个数索引
+		j := i - 1
+		// 当前数比左边第一个数小，需要往前插入
+		if curr < arr[j] {
+			// 注意 j >=0 需要作为前置条件，避免数组越界
+			for ;j >=0 && curr < arr[j]; j-- {
+				// 比待排序大的数都往后挪一位
+				arr[j+1] = arr[j]
+			}
+			// 插入待排数
+			arr[j+1] = curr
+		}
+	}
+	return arr
+}
+
+// ShellSort 希尔排序
+func ShellSort(arr []int) []int {
+	// 数组长度
+	n := len(arr)
+
+	// 每次减半，直到步长为 1
+	for step := n / 2; step >= 1; step /= 2 {
+		// fmt.Printf("step: %v \n", step)
+		// 开始插入排序，每一轮的步长为 step
+		for i := step; i < n; i += step {
+			for j := i - step; j >= 0; j -= step {
+				// 待排序的数
+				curr := arr[i]
+				// 待排序的数的左边最近一个数的下标
+				j := i - step
+				// 在有序列表中寻找待排序数的插入位置
+				for ; j >= 0 && curr < arr[j]; j -= step {
+					// 比待排序数大的数往后移
+					arr[j+step] = arr[j]
+				}
+				// 插入待排数
+				arr[j+step] = curr
+			}
+		}
+	}
+	return arr
+}

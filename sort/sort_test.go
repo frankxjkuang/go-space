@@ -30,3 +30,15 @@ func TestSelectSort(t *testing.T) {
 		t.Logf("%d ===> %v", i, BubbleSort(v))
 	}
 }
+
+func TestInsertSort(t *testing.T) {
+	for i, v := range arrays {
+		t.Logf("%d ===> %v", i, InsertSort(v))
+	}
+}
+
+func TestShellSort(t *testing.T) {
+	for i, v := range arrays {
+		t.Logf("%d ===> %v", i, ShellSort(v))
+	}
+}
