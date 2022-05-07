@@ -42,3 +42,15 @@ func TestShellSort(t *testing.T) {
 		t.Logf("%d ===> %v", i, ShellSort(v))
 	}
 }
+
+func TestMergeSort(t *testing.T) {
+	for i, v := range arrays {
+		t.Logf("%d ===> %v", i, MergeSort(v))
+	}
+}
+
+func TestQuickSort(t *testing.T) {
+	for i, v := range arrays {
+		t.Logf("%d ===> %v", i, QuickSort(v))
+	}
+}
